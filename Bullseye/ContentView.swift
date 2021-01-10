@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isDialogVisible: Bool = false
+    @State private var sliderValue: Double = 10.0
     var body: some View {
         VStack {
             VStack {
@@ -29,7 +30,7 @@ struct ContentView: View {
                     Text("1")
                         .bold()
                         .padding()
-                    Slider(value: .constant(50), in: 1.0 ... 100.0)
+                    Slider(value: $sliderValue, in: 1.0 ... 100.0)
                     Text("100")
                         .bold()
                         .padding()
