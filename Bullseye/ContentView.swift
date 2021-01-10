@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isDialogVisible: Bool = false
     var body: some View {
         VStack {
             VStack {
@@ -25,7 +26,7 @@ struct ContentView: View {
                         .fontWeight(.black)
                 }
                 HStack {
-                    Text("1")   
+                    Text("1")
                         .bold()
                         .padding()
                     Slider(value: .constant(50), in: 1.0 ... 100.0)
@@ -36,11 +37,17 @@ struct ContentView: View {
             }
             Button(action: {
                 print("Hello Alicia")
+                self.isDialogVisible = true
             }) {
                 Text("HIT ME")
-            }
+            }.alert(isPresented: $isDialogVisible, content: {
+                return Alert(
+                    title: Text("Hello"),
+                    message: Text("You click it"),
+                    dismissButton: .default(Text("OK"))
+                )
+            })
         }
-           
     }
 }
 
