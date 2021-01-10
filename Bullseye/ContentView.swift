@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isDialogVisible: Bool = false
-    @State private var isKnockDislogVisible: Bool = false
     var body: some View {
         VStack {
             VStack {
@@ -46,19 +45,6 @@ struct ContentView: View {
                     title: Text("Hello"),
                     message: Text("You click it"),
                     dismissButton: .default(Text("OK"))
-                )
-            })
-            Button(action: {
-                self.isKnockDislogVisible = true
-            }) {
-                    Text("Knock Knock")
-            }.alert(isPresented: $isKnockDislogVisible, content: {
-                return Alert(
-                    title: Text("Who is there ?"),
-                    message: Text("Litle old lady"),
-                    dismissButton: .default(
-                        Text("Litle old  lady who?")
-                    )
                 )
             })
         }
