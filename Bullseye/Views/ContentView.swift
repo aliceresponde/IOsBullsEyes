@@ -21,7 +21,7 @@ struct ContentView: View {
                         .lineSpacing(4.0)
                         .multilineTextAlignment(.center)
                     
-                    Text("89")
+                    Text("\(Int(sliderValue.rounded()) )")
                         .kerning(-1.0)
                         .font(.largeTitle)
                         .fontWeight(.black)
@@ -42,9 +42,10 @@ struct ContentView: View {
             }) {
                 Text("HIT ME")
             }.alert(isPresented: $isDialogVisible, content: {
+                let roundedVal: Int  = Int(self.sliderValue.rounded())
                 return Alert(
                     title: Text("Hello"),
-                    message: Text("You click it"),
+                    message: Text("The slider value is \(roundedVal)"),
                     dismissButton: .default(Text("OK"))
                 )
             })
