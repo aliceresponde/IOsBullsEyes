@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var isDialogVisible: Bool = false
     @State private var sliderValue: Double = 10.0
+    @State private var game: Game = Game()
+    
     var body: some View {
         VStack {
             VStack {
@@ -21,7 +23,7 @@ struct ContentView: View {
                         .lineSpacing(4.0)
                         .multilineTextAlignment(.center)
                     
-                    Text("\(Int(sliderValue.rounded()) )")
+                    Text("\(String(game.target))")
                         .kerning(-1.0)
                         .font(.largeTitle)
                         .fontWeight(.black)
